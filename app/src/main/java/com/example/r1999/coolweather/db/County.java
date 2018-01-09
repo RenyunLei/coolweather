@@ -1,10 +1,12 @@
 package com.example.r1999.coolweather.db;
 
+import org.litepal.crud.DataSupport;
+
 /**
- * Created by R1999 on 2018/1/8.
+ * Created by R1999 on 2018/1/9.
  */
 
-public class County {
+public class County extends DataSupport{
     private int id;
     private String countyName;
     private String weatherId;
@@ -26,19 +28,19 @@ public class County {
         this.countyName = countyName;
     }
 
-    public int getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(int cityId) {
-        this.cityId = cityId;
-    }
-
     public String getWeatherId() {
         return weatherId;
     }
 
     public void setWeatherId(String weatherId) {
         this.weatherId = weatherId;
+    }
+
+    public int getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
     }
 }
