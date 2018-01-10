@@ -108,6 +108,7 @@ public class ChooseAreaFragment extends Fragment {
         titleText.setText("中国");
         backButton.setVisibility(View.GONE);
         provinceList = DataSupport.findAll(Province.class);
+        Log.d("log", "queryProvinces: "+provinceList);
         if (provinceList.size()>0){
             dataList.clear();
             for (Province province : provinceList){//for(x:y):x属于y，而且遍历y中所以元素
@@ -127,7 +128,7 @@ public class ChooseAreaFragment extends Fragment {
         titleText.setText(selectedProvince.getProvinceName());
         backButton.setVisibility(View.VISIBLE);
         cityList = DataSupport.where("provinceid = ?",String.valueOf(selectedProvince.getId())).find(City.class);
-        Log.d("dog", "queryCounties: "+ cityList);
+        Log.d("log", "queryCities: is shuyu "+ selectedProvince.getProvinceName());
         if (cityList.size() > 0){
             dataList.clear();
             for (City city : cityList){
@@ -146,7 +147,7 @@ public class ChooseAreaFragment extends Fragment {
         titleText.setText(selectedCity.getCityName());
         backButton.setVisibility(View.VISIBLE);
         countyList = DataSupport.where("cityid = ?", String .valueOf(selectedCity.getId())).find(County.class);
-        Log.d("dog", "queryCounties: "+ selectedCity.getCityName());
+        Log.d("log", "queryCounties: is shuyu "+ selectedCity.getCityName());
         if (countyList.size() >0){
             dataList.clear();
             for (County county :countyList){
